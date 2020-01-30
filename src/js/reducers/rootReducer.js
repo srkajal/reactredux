@@ -1,10 +1,14 @@
-import { ADD_ARTICLE } from '../constants/action-type';
+import { ADD_ARTICLE, DATA_LOADED } from '../constants/action-type';
 
-const initialState = { articles: [{ title: 'React Redux Tutorial for Beginners', id: 1 }, { title: 'React Redux Tutorial with Store', id: 2 }] };
+const initialState = { articles: [{ title: 'React Redux Tutorial for Beginners', id: 1 }], remoteArticles: [] };
 
 function rootReducer(state = initialState, action) {
     if (action.type === ADD_ARTICLE) {
         return Object.assign({}, state, { articles: state.articles.concat(action.payload) });
+    }
+
+    if(action.type === DATA_LOADED) {
+        return Object.assign({}, state, {remoteArticles: state.remoteArticles.concat(action.payload)});
     }
 
     return state;

@@ -1,6 +1,7 @@
 import React from 'react';
 import List from './List';
 import Form from './Form';
+import Post from './Post';
 
 const App = () => {
     return (
@@ -12,6 +13,10 @@ const App = () => {
     <div>
         <h2>Add Article</h2>
         <Form />
+    </div>
+    <div>
+        <h2>Remote Articles</h2>
+        <Post />
     </div>
     </>);
 };
